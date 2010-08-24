@@ -1,7 +1,22 @@
 import os, logging
+import re, fnmatch
 from ConfigParser import NoSectionError, NoOptionError
 
 from gitosis import group
+
+def isWildcardAccessible(path, repos, validpats=re.compile(r"\*|\?|\[.*?\]")):
+    """
+    Check if path is accessible with wildcards.
+
+    Only wildcards containing *, ? or [] are accepted.
+    """
+    for repo in repos:
+        if not validpats.search(repo):
+            continue
+        if fnmatch.fnmatch(path, repo):
+            return True
+    return False
+
 
 def haveAccess(config, user, mode, path):
     """
@@ -43,7 +58,7 @@ def haveAccess(config, user, mode, path):
 
         mapping = None
 
-        if path in repos:
+        if path in repos or isWildcardAccessible(path, repos):
             log.debug(
                 'Access ok for %(user)r as %(mode)r on %(path)r'
                 % dict(
