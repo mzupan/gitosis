@@ -24,7 +24,7 @@ more information.
 
 You can get ``gitosis`` via ``git`` by saying::
 
-    git clone git://eagain.net/gitosis
+    git clone git://github.com/mzupan/gitosis.git
 
 And install it via::
 
@@ -115,6 +115,18 @@ In your clone of ``gitosis-admin``, edit ``gitosis.conf`` and add::
 	[group myteam]
 	members = jdoe
 	writable = myproject
+
+You can setup wildcards like this
+
+	[group myteam]
+	members = jdoe
+	writable = dir/*
+
+Or like this
+
+	[group myteam]
+	members = jdoe
+	writable = *
 
 Commit that change and push. Then create the initial commit and push
 it::
