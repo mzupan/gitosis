@@ -122,6 +122,9 @@ You can setup wildcards like this
         members = jdoe
         writable = dir/*
 
+
+  test
+  1 2 3
 Or like this
 
         [group myteam]
