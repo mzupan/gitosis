@@ -116,16 +116,13 @@ In your clone of ``gitosis-admin``, edit ``gitosis.conf`` and add::
 	members = jdoe
 	writable = myproject
 
-You can setup wildcards like this
+You can setup wildcards like this::
 
         [group myteam]
         members = jdoe
         writable = dir/*
 
-
-  test
-  1 2 3
-Or like this
+Or like this::
 
         [group myteam]
         members = jdoe
