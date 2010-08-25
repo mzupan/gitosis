@@ -119,14 +119,14 @@ In your clone of ``gitosis-admin``, edit ``gitosis.conf`` and add::
 You can setup wildcards like this
 
 	[group myteam]
-	members = jdoe
-	writable = dir/*
+        members = jdoe
+        writable = dir/*
 
 Or like this
 
 	[group myteam]
-	members = jdoe
-	writable = *
+        members = jdoe
+        writable = *
 
 Commit that change and push. Then create the initial commit and push
 it::
